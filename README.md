@@ -45,7 +45,7 @@ This is how this project was initialized:
 - The execution time is very fast, so it does not prevent TDD
 - The application does not even need to be started. It is mostly needed for styling at the end.
 
-## Improvable about TDD in Angular
+### Improvable about TDD in Angular
 
 - Other than in Java, the TestBed setup tempting the developer to not write tests for behaviour of the application rather than details
 - Selecting an element via `querySelector` returns the Element or `null`, if it is absent.
@@ -56,7 +56,7 @@ This is how this project was initialized:
 - `@CsvSource` looks cleaner than `[{...}].forEach(...)` approach.
 - Wrapping primitives in own classes, interface or types seems not that useful in TypeScript. No validation or typing enforcement can be done similar to Java.
 
-## Interesting about TDD in general
+### Interesting about TDD in general
 
 - Performance is not enforced by TDD. Example: Break out from a `for` or `while` loop, when further calculations are unnecessary. Is this a topic for refactoring?
 - I don't like to modify the value given as input to a function. I'd rather copy the input, if I need to modify it.
