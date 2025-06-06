@@ -33,7 +33,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifact
-          path: artifact
+          path: dist
 
-      - name: Display structure of downloaded files
-        run: ls -R artifact
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/browser/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
