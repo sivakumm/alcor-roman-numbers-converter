@@ -58,9 +58,6 @@ jobs:
           name: build-artifact
           path: dist
 
-      - name: Show file structure of dist
-        run: ls -l dist
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
