@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
-          path: dist/roman-numbers/
+          path: dist/roman-numbers/browser
 
   deploy:
     needs: build
@@ -59,4 +59,4 @@ jobs:
           path: dist
 
       - name: Show file structure of dist
-        run: ls -l dist/browser
+        run: ls -l dist
