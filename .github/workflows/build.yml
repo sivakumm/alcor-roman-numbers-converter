@@ -3,6 +3,7 @@ name: Build & Test
 on:
   push:
     paths:
+      - '**'
       - '!**.md'
 
 jobs:
