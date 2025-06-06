@@ -1,0 +1,26 @@
+<mat-toolbar>
+  <img alt="Logo" src="/favicon/android-icon-72x72.png">
+  <h1>Roman Number Converter</h1>
+</mat-toolbar>
+
+<main>
+  <h2>Arabic Number:</h2>
+  <mat-form-field>
+    <mat-label>Arabic Number</mat-label>
+    <input [(ngModel)]="arabicNumber" matInput min="1" type="number">
+  </mat-form-field>
+
+  <h2>Roman Number:</h2>
+  @if (romanNumber()) {
+    <section class="result">
+      {{ romanNumber() }}
+    </section>
+  }
+
+  @if (conversionError()) {
+    <section class="error">
+      <mat-icon fontIcon="error"/>
+      <p>{{ conversionError() }}</p>
+    </section>
+  }
+</main>
