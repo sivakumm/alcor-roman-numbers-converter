@@ -58,8 +58,5 @@ jobs:
           name: build-artifact
           path: dist
 
-      - name: Show file structure
-        run: ls -l
-
       - name: Show file structure of dist
-        run: ls -l dist
+        run: ls -l dist/browser
