@@ -39,4 +39,4 @@ jobs:
         if: github.ref == 'refs/heads/master'
         with:
           name: dist
-          path: dist/roman-numbers/browsers/
+          path: dist/roman-numbers/
