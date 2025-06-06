@@ -33,3 +33,10 @@ jobs:
 
       - name: Run tests
         run: npm run test:ci
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        if: github.ref == 'refs/heads/master'
+        with:
+          name: dist
+          path: dist/roman-numbers/browsers/
