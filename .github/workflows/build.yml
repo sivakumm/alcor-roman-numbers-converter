@@ -30,7 +30,7 @@ jobs:
         run: npm run lint
 
       - name: Build project
-        run: npm run build -- --base-href=${{ github.event.repository.name }}
+        run: npm run build -- --base-href=/${{ github.event.repository.name }}/
 
       - name: Run tests
         run: npm run test:ci
