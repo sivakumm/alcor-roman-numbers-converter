@@ -6,6 +6,7 @@ on:
       - '**'
       - '!**.md'
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,14 +30,42 @@ jobs:
         run: npm run lint
 
       - name: Build project
-        run: npm run build
+        run: npm run build -- --base-href=/${{ github.event.repository.name }}/
 
       - name: Run tests
         run: npm run test:ci
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
-        if: github.ref == 'refs/heads/master'
         with:
-          name: dist
-          path: dist/roman-numbers/
+          name: build-artifact
+          path: dist/roman-numbers/browser
+
+  deploy:
+    needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifact
+          path: dist
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
